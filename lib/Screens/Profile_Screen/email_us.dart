@@ -1,5 +1,4 @@
 import 'package:e_com_app/Global/constants.dart';
-import 'package:e_com_app/Screens/Profile_Screen/call_us.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,6 +8,14 @@ class EmailUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
+    final paddingHorizontal = mediaQuery.width * 0.04; // Adjust as needed
+    final paddingVertical = mediaQuery.height * 0.02; // Adjust as needed
+    final contentPaddingHorizontal = mediaQuery.width * 0.03;
+    final contentPaddingVertical = mediaQuery.height * 0.012;
+    final iconSize = mediaQuery.height * 0.05;
+    final containerHeight = mediaQuery.height * 0.1;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -77,12 +84,12 @@ class EmailUs extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16),
+          padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: paddingVertical),
                 child: TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -111,51 +118,53 @@ class EmailUs extends StatelessWidget {
                         color: Colors.blue.withOpacity(0.5),
                       ),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 15.0,
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: contentPaddingVertical,
+                      horizontal: contentPaddingHorizontal,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 32.0),
+              SizedBox(height: mediaQuery.height * 0.04),
               Text('Let’s take care of this',
                   style: TEXT_STYLE.copyWith(
                       fontSize: 22,
                       fontWeight: FontWeight.w500,
                       color: Colors.black)),
-              const SizedBox(height: 16),
+              SizedBox(height: mediaQuery.height * 0.02),
               Text(
                   'Tell us as much as you can about the problem, and we will be in touch soon.',
                   style: TEXT_STYLE.copyWith(
                       fontSize: SIZE_SM,
                       fontWeight: FontWeight.w500,
                       color: LIT_BOLD)),
-              const SizedBox(height: 32),
+              SizedBox(height: mediaQuery.height * 0.04),
               Text('Mail us',
                   style: TEXT_STYLE.copyWith(
                       fontSize: SIZE_SM,
                       fontWeight: FontWeight.w600,
                       color: BOLD)),
-              const SizedBox(height: 16),
+              SizedBox(height: mediaQuery.height * 0.02),
               Container(
                 width: double.infinity,
-                height: 82,
+                height: containerHeight,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 246, 246, 246),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 14),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: paddingHorizontal,
+                      vertical: paddingVertical * 0.7),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.email_outlined,
                         color: Colors.grey,
-                        size: 40,
+                        size: iconSize,
                       ),
-                      const Spacer(),
+                      SizedBox(width: mediaQuery.width * 0.04),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -165,7 +174,7 @@ class EmailUs extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                                 color: BOLD,
                               )),
-                          const SizedBox(height: 4),
+                          SizedBox(height: mediaQuery.height * 0.01),
                           Text('we will respond in 1 working day',
                               style: TEXT_STYLE.copyWith(
                                 fontSize: 14,
@@ -174,17 +183,14 @@ class EmailUs extends StatelessWidget {
                               )),
                         ],
                       ),
-                      const Spacer(),
+                      Spacer(),
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => CallUs()));
-                          // Navigate to the next page
+                          // Handle tap event
                         },
-                        child: const Padding(
-                          padding: EdgeInsets.only(top: 12.0),
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(top: mediaQuery.height * 0.01),
                           child: Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.black87,

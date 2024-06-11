@@ -12,6 +12,13 @@ class CustomerSupport extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
+    final paddingHorizontal =
+        mediaQuery.width * 0.03; // Adjust this value as needed
+    final imageHeight = mediaQuery.height * 0.3; // Adjust this value as needed
+    final containerHeight =
+        mediaQuery.height * 0.12; // Adjust this value as needed
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -80,12 +87,12 @@ class CustomerSupport extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(paddingHorizontal),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(paddingHorizontal),
                 child: TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -114,16 +121,16 @@ class CustomerSupport extends StatelessWidget {
                         color: Colors.blue.withOpacity(0.5),
                       ),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 15.0,
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: mediaQuery.height * 0.012,
+                      horizontal: mediaQuery.width * 0.04,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: mediaQuery.height * 0.025),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12),
+                padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
                 child: Text('Customer Support',
                     style: TEXT_STYLE.copyWith(
                         fontSize: 20,
@@ -131,7 +138,10 @@ class CustomerSupport extends StatelessWidget {
                         color: Colors.black)),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10, left: 12, right: 12),
+                padding: EdgeInsets.only(
+                    top: mediaQuery.height * 0.012,
+                    left: paddingHorizontal,
+                    right: paddingHorizontal),
                 child: Text('Talk to our team',
                     style: TEXT_STYLE.copyWith(
                         fontSize: 16,
@@ -139,16 +149,22 @@ class CustomerSupport extends StatelessWidget {
                         color: Colors.black)),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20, left: 12, right: 12),
+                padding: EdgeInsets.only(
+                    top: mediaQuery.height * 0.025,
+                    left: paddingHorizontal,
+                    right: paddingHorizontal),
                 child: SizedBox(
                   width: double.infinity,
-                  height: 215,
+                  height: imageHeight,
                   child: Image.asset(
                       'assets/animations/Confident call center operator talking with client (1).png'),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12, top: 15),
+                padding: EdgeInsets.only(
+                    left: paddingHorizontal,
+                    right: paddingHorizontal,
+                    top: mediaQuery.height * 0.018),
                 child: Text('Recommended',
                     style: TEXT_STYLE.copyWith(
                         fontSize: 16,
@@ -156,9 +172,9 @@ class CustomerSupport extends StatelessWidget {
                         color: BOLD)),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: EdgeInsets.all(paddingHorizontal),
                 child: Container(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(mediaQuery.width * 0.04),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF6F6F6),
                     borderRadius: BorderRadius.circular(8),
@@ -172,7 +188,6 @@ class CustomerSupport extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               backgroundColor: Colors.transparent,
-                              // radius: 30,
                               child: Icon(
                                 Icons.chat,
                                 color: Colors.grey,
@@ -191,7 +206,7 @@ class CustomerSupport extends StatelessWidget {
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                   color: BOLD)),
-                          const SizedBox(height: 8),
+                          SizedBox(height: mediaQuery.height * 0.01),
                           Text('We usually reply in 1-2 minutes',
                               style: TEXT_STYLE.copyWith(
                                   fontSize: 14,
@@ -221,7 +236,7 @@ class CustomerSupport extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: EdgeInsets.all(paddingHorizontal),
                 child: Text(
                   'Other Options',
                   style: TEXT_STYLE.copyWith(
@@ -229,9 +244,9 @@ class CustomerSupport extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: EdgeInsets.all(paddingHorizontal),
                 child: Container(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(mediaQuery.width * 0.04),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF6F6F6),
                     borderRadius: BorderRadius.circular(8),
@@ -262,8 +277,8 @@ class CustomerSupport extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                                 color: BOLD),
                           ),
-                          const SizedBox(height: 8),
-                          Text('we will respond in 1 working day',
+                          SizedBox(height: mediaQuery.height * 0.01),
+                          Text('We will respond in 1 working day',
                               style: TEXT_STYLE.copyWith(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
@@ -277,7 +292,6 @@ class CustomerSupport extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => EmailUs()));
-                          // Navigate to the next page
                         },
                         child: const Padding(
                           padding: EdgeInsets.only(top: 12.0),
@@ -292,9 +306,9 @@ class CustomerSupport extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: EdgeInsets.all(paddingHorizontal),
                 child: Container(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(mediaQuery.width * 0.04),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF6F6F6),
                     borderRadius: BorderRadius.circular(8),
@@ -325,7 +339,7 @@ class CustomerSupport extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                                 color: BOLD),
                           ),
-                          const SizedBox(height: 8),
+                          SizedBox(height: mediaQuery.height * 0.01),
                           Text('Available Mon - Fri 8am - 7pm',
                               style: TEXT_STYLE.copyWith(
                                   fontSize: 14,
@@ -336,7 +350,6 @@ class CustomerSupport extends StatelessWidget {
                       const Spacer(),
                       GestureDetector(
                         onTap: () {
-                          // Navigate to the next page
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => CallUs()),

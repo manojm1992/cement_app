@@ -1,5 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../Global/constants.dart';
 
 class NotificationSettings extends StatefulWidget {
   const NotificationSettings({super.key});
@@ -48,13 +52,41 @@ class _NotificationSettingsState extends State<NotificationSettings> {
               // Handle favorite action
             },
           ),
-          IconButton(
-            icon: const Icon(
-              Icons.shopping_bag_outlined,
-            ),
-            onPressed: () {
-              // Handle add to cart action
-            },
+          Stack(
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.shopping_bag_outlined,
+                  size: 30,
+                ),
+                onPressed: () {
+                  // Handle add to cart action
+                },
+              ),
+              Positioned(
+                right: 5,
+                top: 5,
+                child: Container(
+                  padding: const EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Colors.green, // Green background for the counter
+                    borderRadius: BorderRadius.circular(30), // Circular shape
+                  ),
+                  constraints: const BoxConstraints(
+                    minWidth: 20,
+                    minHeight: 20,
+                  ),
+                  child: Center(
+                    child: Text('2', // Number to be displayed in the counter
+                        style: GoogleFonts.plusJakartaSans(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          color: Colors.white,
+                        )),
+                  ),
+                ),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20),
@@ -107,25 +139,17 @@ class _NotificationSettingsState extends State<NotificationSettings> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16.0),
-              Text(
-                'Notification Setting',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: const Color.fromARGB(255, 0, 0, 0),
-                ),
-              ),
-              const SizedBox(height: 32),
-              Text(
-                'Customizable Notification Categories:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
-                  color: const Color.fromARGB(255, 27, 58, 87),
-                ),
-              ),
-              const SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.018),
+              Text('Notification Setting',
+                  style: TEXT_STYLE.copyWith(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+              Text('Customizable Notification Categories:',
+                  style: TEXT_STYLE.copyWith(
+                      fontSize: 18, fontWeight: FontWeight.w600, color: BOLD)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.018),
               buildNotificationSwitch(
                 'General Notifications',
                 generalNotifications,
@@ -162,15 +186,10 @@ class _NotificationSettingsState extends State<NotificationSettings> {
                   });
                 },
               ),
-              const SizedBox(height: 20),
-              Text(
-                'Notification Frequency Options',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: const Color.fromARGB(255, 27, 58, 87),
-                ),
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.020),
+              Text('Notification Frequency Options',
+                  style: TEXT_STYLE.copyWith(
+                      fontSize: 18, fontWeight: FontWeight.w600, color: BOLD)),
               buildNotificationSwitch('Real-Time', realTime, (value) {
                 setState(() {
                   realTime = value;
@@ -191,14 +210,9 @@ class _NotificationSettingsState extends State<NotificationSettings> {
                 });
               }),
               const SizedBox(height: 20),
-              Text(
-                'Multiple Notification Channels:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: const Color.fromARGB(255, 27, 58, 87),
-                ),
-              ),
+              Text('Multiple Notification Channels:',
+                  style: TEXT_STYLE.copyWith(
+                      fontSize: 20, fontWeight: FontWeight.w600, color: BOLD)),
               const SizedBox(height: 20),
               buildNotificationSwitch(
                 'Push Notifications',
@@ -228,14 +242,9 @@ class _NotificationSettingsState extends State<NotificationSettings> {
                 },
               ),
               const SizedBox(height: 20),
-              Text(
-                'Sound and Vibration Settings:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: const Color.fromARGB(255, 27, 58, 87),
-                ),
-              ),
+              Text('Sound and Vibration Settings:',
+                  style: TEXT_STYLE.copyWith(
+                      fontSize: 20, fontWeight: FontWeight.w600, color: BOLD)),
               const SizedBox(height: 20),
               buildNotificationSwitch(
                 'Sound',
@@ -256,14 +265,9 @@ class _NotificationSettingsState extends State<NotificationSettings> {
                 },
               ),
               const SizedBox(height: 20),
-              Text(
-                'Do Not Disturb (DND) Mode:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: const Color.fromARGB(255, 27, 58, 87),
-                ),
-              ),
+              Text('Do Not Disturb (DND) Mode:',
+                  style: TEXT_STYLE.copyWith(
+                      fontSize: 20, fontWeight: FontWeight.w600, color: BOLD)),
               const SizedBox(height: 20),
               buildNotificationSwitch(
                 'Scheduled DND',
@@ -298,22 +302,17 @@ Widget buildNotificationSwitch(
 ) {
   return ListTile(
     contentPadding: EdgeInsets.zero,
-    title: Text(
-      title,
-      style: GoogleFonts.poppins(
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        color: const Color.fromARGB(255, 117, 117, 117),
-      ),
-    ),
+    title: Text(title,
+        style: TEXT_STYLE.copyWith(
+            fontSize: SIZE_SM, fontWeight: FontWeight.w500, color: LIT_BOLD)),
     trailing: Transform.scale(
       scale: 0.8, // Adjust the scale to change the size
       child: Switch(
         value: value,
         onChanged: onChanged,
-        activeColor: const Color(0xFF4CAF50), // Green color for active thumb
-        inactiveThumbColor: const Color.fromARGB(
-            255, 255, 254, 254), // Grey color for inactive thumb
+        activeColor: const Color(0xFF2AA952), // Green color for active thumb
+        inactiveThumbColor: Color(0xFFE6E6E6),
+        // Grey color for inactive thumb
         inactiveTrackColor: const Color.fromARGB(
             255, 244, 241, 241), // Grey color for inactive track
         activeTrackColor: const Color.fromARGB(255, 223, 217, 217),

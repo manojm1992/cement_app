@@ -7,6 +7,14 @@ class ChatWithUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
+    final paddingHorizontal =
+        mediaQuery.width * 0.02; // Adjust this value as needed
+    final containerHeight =
+        mediaQuery.height * 0.36; // Adjust this value as needed
+    final buttonHeight =
+        mediaQuery.height * 0.05; // Adjust this value as needed
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -75,12 +83,12 @@ class ChatWithUs extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(paddingHorizontal),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: EdgeInsets.only(left: paddingHorizontal),
                 child: TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -109,53 +117,53 @@ class ChatWithUs extends StatelessWidget {
                         color: Colors.blue.withOpacity(0.5),
                       ),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 15.0,
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: mediaQuery.height * 0.01,
+                      horizontal: mediaQuery.width * 0.04,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: mediaQuery.height * 0.02),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: EdgeInsets.only(left: paddingHorizontal),
                 child: Text('Let’s take care of this',
                     style: TEXT_STYLE.copyWith(
                         fontSize: 22,
                         fontWeight: FontWeight.w500,
                         color: Colors.black)),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: mediaQuery.height * 0.015),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(paddingHorizontal),
                 child: Text(
-                    'Tell us as much you can about the problem, and we will in touch soon.',
+                    'Tell us as much you can about the problem, and we will be in touch soon.',
                     style: TEXT_STYLE.copyWith(
                         fontSize: SIZE_SM,
                         fontWeight: FontWeight.w500,
                         color: LIT_BOLD)),
               ),
-              const SizedBox(height: 25.0),
+              SizedBox(height: mediaQuery.height * 0.03),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: EdgeInsets.only(left: paddingHorizontal),
                 child: Text('Message',
                     style: TEXT_STYLE.copyWith(
                         fontSize: SIZE_SM,
                         fontWeight: FontWeight.w600,
                         color: BOLD)),
               ),
-              const SizedBox(height: 20.0),
+              SizedBox(height: mediaQuery.height * 0.025),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(paddingHorizontal),
                 child: Container(
-                  width: 369,
-                  height: 288,
+                  width: mediaQuery.width * 0.95,
+                  height: containerHeight,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: const Color.fromARGB(255, 233, 237, 243),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: mediaQuery.width * 0.05),
                     child: TextField(
                       decoration: InputDecoration(
                           border: InputBorder.none,
@@ -169,12 +177,13 @@ class ChatWithUs extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 32),
+              SizedBox(height: mediaQuery.height * 0.04),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 4, top: 16, right: 4, bottom: 16),
+                padding: EdgeInsets.symmetric(
+                    horizontal: paddingHorizontal,
+                    vertical: mediaQuery.height * 0.02),
                 child: SizedBox(
-                  height: 39,
+                  height: buttonHeight,
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ButtonStyle(

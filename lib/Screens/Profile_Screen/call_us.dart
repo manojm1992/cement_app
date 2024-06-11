@@ -8,6 +8,13 @@ class CallUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
+    final paddingHorizontal =
+        mediaQuery.width * 0.04; // Adjust this value as needed
+    final containerHeight =
+        mediaQuery.height * 0.1; // Adjust this value as needed
+    final iconSize = mediaQuery.width * 0.1; // Adjust this value as needed
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -76,12 +83,12 @@ class CallUs extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: mediaQuery.height * 0.02),
                 child: TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -110,27 +117,27 @@ class CallUs extends StatelessWidget {
                         color: Colors.blue.withOpacity(0.5),
                       ),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 15.0,
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: mediaQuery.height * 0.01,
+                      horizontal: mediaQuery.width * 0.04,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 32.0),
+              SizedBox(height: mediaQuery.height * 0.04),
               Text('Talk to our Team',
                   style: TEXT_STYLE.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.w500,
                       color: Colors.black)),
-              SizedBox(height: 16),
+              SizedBox(height: mediaQuery.height * 0.02),
               Text(
                   'Tell your assistant as much as you can about the issue and we will connect you to the right person.',
                   style: TEXT_STYLE.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       color: LIT_BOLD)),
-              SizedBox(height: 32),
+              SizedBox(height: mediaQuery.height * 0.04),
               Text(
                 'Contact',
                 style: TEXT_STYLE.copyWith(
@@ -139,16 +146,16 @@ class CallUs extends StatelessWidget {
                   color: BOLD,
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: mediaQuery.height * 0.02),
               Container(
                 width: double.infinity,
-                height: 82,
+                height: containerHeight,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 246, 246, 246),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 14),
+                  padding: EdgeInsets.only(top: mediaQuery.height * 0.02),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -157,7 +164,7 @@ class CallUs extends StatelessWidget {
                           Icon(
                             Icons.call_outlined,
                             color: Colors.grey,
-                            size: 40,
+                            size: iconSize,
                           ),
                         ],
                       ),
@@ -170,7 +177,7 @@ class CallUs extends StatelessWidget {
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                   color: BOLD)),
-                          SizedBox(height: 4),
+                          SizedBox(height: mediaQuery.height * 0.005),
                           Text('Available Mon - Fri  8am - 7pm',
                               style: TEXT_STYLE.copyWith(
                                   fontSize: 14,
@@ -187,9 +194,10 @@ class CallUs extends StatelessWidget {
                           //         builder: (context) => CallUs()));
                           // Navigate to the next page
                         },
-                        child: const Padding(
-                          padding: EdgeInsets.only(top: 12.0),
-                          child: Icon(
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(top: mediaQuery.height * 0.015),
+                          child: const Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.black87,
                           ),

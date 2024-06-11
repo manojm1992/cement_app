@@ -1,10 +1,9 @@
 import 'package:e_com_app/Screens/Edit_page/edit_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../Global/constants.dart';
 import '../bottom_drawer.dart';
+import 'account_details.dart';
 import 'customer_support.dart';
 import 'notification_settings.dart';
 
@@ -385,7 +384,13 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            AccountsDetailsPassword()));
+                              },
                               icon: const Icon(
                                 Icons.arrow_forward_ios,
                                 color: Profile_Icon_IOS,
