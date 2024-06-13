@@ -50,6 +50,7 @@ dependencies:
   image_picker: ^1.1.2
   animate_do: ^3.3.4
   backdrop: ^0.9.1
+  simple_drawer: ^0.0.11
 
 dev_dependencies:
   flutter_test:
@@ -92,10 +93,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

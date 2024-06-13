@@ -790,9 +790,6 @@ class _ProductCardState extends State<ProductCard> {
   bool isFavorite = false; // Define isFavorite variable
   bool isPressed = false;
 
-// Now you can use isFavorite
-// isFavorite = !isFavorite; // Toggle the value of isFavorite
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -854,7 +851,7 @@ class _ProductCardState extends State<ProductCard> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
         Padding(
           padding: const EdgeInsets.only(right: 20),
           child: Row(
@@ -872,7 +869,7 @@ class _ProductCardState extends State<ProductCard> {
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
         Padding(
           padding: const EdgeInsets.only(right: 20),
           child: Row(
@@ -890,7 +887,7 @@ class _ProductCardState extends State<ProductCard> {
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
         Padding(
           padding: const EdgeInsets.only(right: 20),
           child: Row(
@@ -904,7 +901,7 @@ class _ProductCardState extends State<ProductCard> {
                   color: BOLD,
                 ),
               ),
-              const SizedBox(width: 50),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.050),
               Text(
                 //'${product.originalPrice}',
                 '500.00',

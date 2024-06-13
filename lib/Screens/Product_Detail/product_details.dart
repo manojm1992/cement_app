@@ -1,15 +1,14 @@
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_com_app/Global/constants.dart';
-import 'package:e_com_app/Screens/Bottom_Nav_Bar/bottom_nav_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Cart/cart.dart';
 import '../Shipping/shipping_delivery.dart';
-import '../Vochure_Promo_Code/vochure_promo.dart';
+
+import '../login_screen.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({super.key});
@@ -449,16 +448,155 @@ class _ProductDetailsState extends State<ProductDetailsPage> {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return AlertDialog(
-                              content: VochurePromoPage(),
-                              actions: [
-                                // TextButton(
-                                //   onPressed: () {
-                                //     Navigator.pop(context);
-                                //   },
-                                //   child: Text('Close'),
-                                // ),
-                              ],
+                            return BackdropFilter(
+                              filter:
+                                  ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                              child: Dialog(
+                                backgroundColor: Colors.transparent,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    // Adjust the image size using height and width
+                                    ClipPath(
+                                      clipper: EdgeCutClipper(),
+                                      child: Card(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
+                                        elevation: 2,
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    '5% off',
+                                                    style: TextStyle(
+                                                        fontSize: 24,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: DARK_BOLD),
+                                                  ),
+                                                  Icon(Icons.info_outline,
+                                                      color: Color(0xFF636363))
+                                                ],
+                                              ),
+                                              SizedBox(height: 8),
+                                              Text(
+                                                'for your entire purchase',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xFF757575),
+                                                ),
+                                              ),
+                                              SizedBox(height: 16),
+                                              Divider(
+                                                  thickness: 1,
+                                                  color: Colors.grey),
+                                              SizedBox(height: 8),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    'CEMENT 50',
+                                                    style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                  Icon(Icons.copy,
+                                                      color: Color(0xFF636363)),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    ClipPath(
+                                      clipper: EdgeCutClipper(),
+                                      child: Card(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
+                                        elevation: 2,
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    '20% off',
+                                                    style: TextStyle(
+                                                        fontSize: 24,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: DARK_BOLD),
+                                                  ),
+                                                  Icon(Icons.info_outline,
+                                                      color: Color(0xFF636363))
+                                                ],
+                                              ),
+                                              SizedBox(height: 8),
+                                              Text(
+                                                'essential material',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xFF757575),
+                                                ),
+                                              ),
+                                              SizedBox(height: 16),
+                                              Divider(
+                                                  thickness: 1,
+                                                  color: Colors.grey),
+                                              SizedBox(height: 8),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    'STEEL 50',
+                                                    style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                  Icon(Icons.copy,
+                                                      color: Color(0xFF636363)),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             );
                           },
                         );
@@ -494,7 +632,7 @@ class _ProductDetailsState extends State<ProductDetailsPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Voucher Promo',
                                     style: TextStyle(
                                       fontSize: 14,
@@ -506,7 +644,7 @@ class _ProductDetailsState extends State<ProductDetailsPage> {
                                     height: MediaQuery.of(context).size.height *
                                         0.010,
                                   ),
-                                  Flexible(
+                                  const Flexible(
                                     child: Text(
                                       'There are 2 promo codes for you',
                                       style: TextStyle(
@@ -1064,6 +1202,34 @@ class _ProductDetailsState extends State<ProductDetailsPage> {
             ),
           ),
         )));
+  }
+}
+
+class EdgeCutClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    double cutWidth = 20.0;
+    double cutHeight = 20.0;
+
+    Path path = Path();
+    path.moveTo(0, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height / 2 - cutHeight / 2);
+    path.lineTo(size.width - cutWidth, size.height / 2);
+    path.lineTo(size.width, size.height / 2 + cutHeight / 2);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.lineTo(0, size.height / 2 + cutHeight / 2);
+    path.lineTo(cutWidth, size.height / 2);
+    path.lineTo(0, size.height / 2 - cutHeight / 2);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
 

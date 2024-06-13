@@ -31,165 +31,161 @@ class _ProductCard_2State extends State<ProductCard_2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              width: 170,
-              height: 180,
-              child: Stack(
-                children: [
-                  Card(
-                    color: const Color(0xFFDFDFDF),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: Color.fromARGB(71, 158, 158, 158),
-                      ),
-                      borderRadius: BorderRadius.circular(13),
+      body: Column(
+        children: [
+          SizedBox(
+            width: 170,
+            height: MediaQuery.of(context).size.height,
+            child: Stack(
+              children: [
+                Card(
+                  color: const Color(0xFFDFDFDF),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                      color: Color.fromARGB(71, 158, 158, 158),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Image.asset(
-                        widget.imageList_2,
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Image.asset(
+                      widget.imageList_2,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 5,
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        padding: const EdgeInsets.all(8),
+                        child: IconButton(
+                          icon: Icon(
+                            isFavorite ? Icons.favorite : Icons.favorite_border,
+                            color: isFavorite ? Colors.red : Colors.grey,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isFavorite = !isFavorite;
+                            });
+                          },
+                        ),
                       ),
                     ),
                   ),
-                  Positioned(
-                    right: 5,
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          padding: const EdgeInsets.all(8),
-                          child: IconButton(
-                            icon: Icon(
-                              isFavorite
-                                  ? Icons.favorite
-                                  : Icons.favorite_border,
-                              color: isFavorite ? Colors.red : Colors.grey,
-                              size: 30,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                isFavorite = !isFavorite;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                widget.title_2,
+                textAlign: TextAlign.center,
+                style: TEXT_STYLE.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: BOLD,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                widget.subtitle_2,
+                textAlign: TextAlign.center,
+                style: TEXT_STYLE.copyWith(
+                  fontSize: 13,
+                  fontWeight: FontWeight.normal,
+                  color: LIT_BOLD,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                '₹450.00/KG',
+                style: TEXT_STYLE.copyWith(
+                  fontSize: SIZE_SM,
+                  fontWeight: FontWeight.bold,
+                  color: BOLD,
+                ),
+              ),
+              const SizedBox(width: 30),
+              Text(
+                //'${product.originalPrice}',
+                '500.00',
+                style: TEXT_STYLE.copyWith(
+                  fontSize: SIZE_SM,
+                  fontWeight: FontWeight.normal,
+                  color: LIT_BOLD,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 40,
+            width: 170,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  isPressed ? BOLD : const Color(0xFFD3D3D3),
+                ),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    side: BorderSide(color: Colors.black, width: 1.0),
+                  ),
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  isPressed = !isPressed; // Toggle the pressed state
+                });
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) =>
+                //             const OtpVerificationScreen()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.bagShopping,
+                    size: 20,
+                    color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    "Add To Cart",
+                    style: TEXT_STYLE.copyWith(
+                      fontSize: SIZE_SM,
+                      fontWeight: FontWeight.w500,
+                      color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.title_2,
-                  textAlign: TextAlign.center,
-                  style: TEXT_STYLE.copyWith(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: BOLD,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.subtitle_2,
-                  textAlign: TextAlign.center,
-                  style: TEXT_STYLE.copyWith(
-                    fontSize: 13,
-                    fontWeight: FontWeight.normal,
-                    color: LIT_BOLD,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  '₹450.00/KG',
-                  style: TEXT_STYLE.copyWith(
-                    fontSize: SIZE_SM,
-                    fontWeight: FontWeight.bold,
-                    color: BOLD,
-                  ),
-                ),
-                const SizedBox(width: 30),
-                Text(
-                  //'${product.originalPrice}',
-                  '500.00',
-                  style: TEXT_STYLE.copyWith(
-                    fontSize: SIZE_SM,
-                    fontWeight: FontWeight.normal,
-                    color: LIT_BOLD,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 40,
-              width: 170,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    isPressed ? BOLD : const Color(0xFFD3D3D3),
-                  ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      side: BorderSide(color: Colors.black, width: 1.0),
-                    ),
-                  ),
-                ),
-                onPressed: () {
-                  setState(() {
-                    isPressed = !isPressed; // Toggle the pressed state
-                  });
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) =>
-                  //             const OtpVerificationScreen()));
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FaIcon(
-                      FontAwesomeIcons.bagShopping,
-                      size: 20,
-                      color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      "Add To Cart",
-                      style: TEXT_STYLE.copyWith(
-                        fontSize: SIZE_SM,
-                        fontWeight: FontWeight.w500,
-                        color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

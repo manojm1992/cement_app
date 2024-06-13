@@ -1,8 +1,5 @@
 import 'package:e_com_app/Screens/bottom_drawer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../Global/constants.dart';
@@ -210,23 +207,17 @@ class _SteelScreenState extends State<SteelScreen> {
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     return SizedBox(
-                      height: 100,
-                      width: 200,
-                      child: Column(
-                        children: [
-                          Container(
-                            color: LIT_BOLD,
-                            width: 200,
-                            height: 300,
-                            child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(30.0),
-                                child: Image.asset(
-                                    'assets/cement_images/image 32.png'),
-                              ),
-                            ),
-                          ),
-                        ],
+                      height: MediaQuery.of(context).size.height,
+                      // width: 200,
+                      child: ProductCard_2(
+                        imageList_2: imageList_2[index],
+                        title_2: titleList_2[index],
+                        subtitle_2: subtitleList_2[index],
+                        price: 450.00,
+                        isPressed: false,
+                        onPressed: () {
+                          // Handle button press
+                        },
                       ),
                     );
                   }),
