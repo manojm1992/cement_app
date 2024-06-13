@@ -2,7 +2,6 @@ import 'package:e_com_app/Screens/email_verification.dart';
 import 'package:e_com_app/Screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../Global/constants.dart';
 

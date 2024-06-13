@@ -1,9 +1,6 @@
 import 'package:e_com_app/Global/constants.dart';
 import 'package:e_com_app/Screens/Cart/cart.dart';
 
-import 'package:e_com_app/Screens/otp_verification.dart';
-import 'package:e_com_app/Screens/register_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Orders_Screen/oders_screen.dart';

@@ -5,7 +5,8 @@ import '../../Global/constants.dart';
 import '../bottom_drawer.dart';
 import 'account_details.dart';
 import 'customer_support.dart';
-import 'notification_settings.dart';
+import 'log_out.dart';
+import 'package:e_com_app/Screens/Profile_Screen/notification_settings.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -670,11 +671,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       setState(() {
                         isPressed_4 = !isPressed_4; // Toggle the pressed state
                       });
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) =>
-                      //             const OtpVerificationScreen()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Logout()));
                     },
                     child: Text(
                       "Logout",

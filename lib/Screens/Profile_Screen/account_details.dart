@@ -1,10 +1,6 @@
-import 'dart:ui';
-
 import 'package:e_com_app/Global/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../bottom_drawer.dart';
 
 class AccountsDetailsPassword extends StatefulWidget {
   const AccountsDetailsPassword({super.key});
@@ -138,26 +134,28 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Account Details & Password',
-                        style: TEXT_STYLE.copyWith(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                            color: Colors.black)),
+                    Text(
+                      'Account Details & Password',
+                      style: TEXT_STYLE.copyWith(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                          color: Colors.black),
+                    ),
                     const SizedBox(height: 20),
                     Text(
                       'Account Details',
-                      style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
+                      style: TEXT_STYLE.copyWith(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
                           color: Colors.black),
                     ),
                     const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'User Name',
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
+                        style: TEXT_STYLE.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: SIZE_SM,
                             color: Colors.black),
                         children: const [
                           TextSpan(
@@ -176,11 +174,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 22.5, horizontal: 10),
                           hintText: 'Enter Full Name',
-                          hintStyle: GoogleFonts.poppins(
-                            color: const Color.fromARGB(255, 117, 117, 117),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
+                          hintStyle: TEXT_STYLE.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: LIT_BOLD),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: const BorderSide(
@@ -206,9 +203,9 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                     RichText(
                       text: TextSpan(
                         text: 'Email Address',
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
+                        style: TEXT_STYLE.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: SIZE_SM,
                             color: Colors.black),
                         children: const [
                           TextSpan(
@@ -227,11 +224,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 22.5, horizontal: 10),
                           hintText: 'Enter Email Address',
-                          hintStyle: GoogleFonts.poppins(
-                            color: const Color.fromARGB(255, 117, 117, 117),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
+                          hintStyle: TEXT_STYLE.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: LIT_BOLD),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: const BorderSide(
@@ -257,9 +253,9 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                     RichText(
                       text: TextSpan(
                         text: 'Phone Number',
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
+                        style: TEXT_STYLE.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: SIZE_SM,
                             color: Colors.black),
                         children: const [
                           TextSpan(
@@ -278,11 +274,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 22.5, horizontal: 10),
                           hintText: 'Enter Phone Number',
-                          hintStyle: GoogleFonts.poppins(
-                            color: const Color.fromARGB(255, 117, 117, 117),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
+                          hintStyle: TEXT_STYLE.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: LIT_BOLD),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(
@@ -308,9 +303,9 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                     RichText(
                       text: TextSpan(
                         text: 'Date Of Birth',
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
+                        style: TEXT_STYLE.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: SIZE_SM,
                             color: Colors.black),
                         children: const [
                           TextSpan(
@@ -329,11 +324,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 22.5, horizontal: 10),
                           hintText: 'Enter Date Of Birth',
-                          hintStyle: GoogleFonts.poppins(
-                            color: const Color.fromARGB(255, 117, 117, 117),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
+                          hintStyle: TEXT_STYLE.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: LIT_BOLD),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: const BorderSide(
@@ -365,11 +359,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                     const SizedBox(height: 18),
                     Text(
                       'Password Details',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),
+                      style: TEXT_STYLE.copyWith(
+                          fontWeight: FontWeight.w500,
+                          fontSize: SIZE_SM,
+                          color: Colors.black),
                     ),
                     const SizedBox(height: 20),
                     Row(
@@ -378,11 +371,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                         RichText(
                           text: TextSpan(
                             text: 'Password',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                              color: Colors.black,
-                            ),
+                            style: TEXT_STYLE.copyWith(
+                                fontWeight: FontWeight.w500,
+                                fontSize: SIZE_SM,
+                                color: Colors.black),
                             children: const [
                               TextSpan(
                                 text: ' *',
@@ -400,10 +392,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                           },
                           child: Text(
                             'Change',
-                            style: GoogleFonts.poppins(
+                            style: TEXT_STYLE.copyWith(
                               fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              color: const Color.fromARGB(255, 27, 58, 87),
+                              fontSize: SIZE_SM,
+                              color: Color.fromARGB(255, 27, 58, 87),
                             ),
                           ),
                         ),
@@ -419,11 +411,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 22.5, horizontal: 10),
                           hintText: '****************',
-                          hintStyle: GoogleFonts.poppins(
-                            color: const Color.fromARGB(255, 117, 117, 117),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
+                          hintStyle: TEXT_STYLE.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: LIT_BOLD),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: const BorderSide(
@@ -482,10 +473,10 @@ class _AccountsDetailsPasswordState extends State<AccountsDetailsPassword> {
                         }
                       },
                       child: Text('Save',
-                          style: GoogleFonts.poppins(
+                          style: TEXT_STYLE.copyWith(
+                            fontSize: SIZE_SM,
                             fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            color: const Color.fromARGB(255, 255, 255, 255),
+                            color: SECONDARY_COLOR,
                           )),
                     ),
                   ],
@@ -504,155 +495,152 @@ class BottomDrawerContent1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        height: 400,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Change Password',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      height: 400,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Change Password',
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+            ),
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 50,
+            width: double.infinity,
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 22.5, horizontal: 10),
+                hintText: 'Old Password',
+                hintStyle: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                  color: const Color.fromARGB(255, 117, 117, 117),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 182, 180, 180), width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 182, 180, 180), width: 1),
+                ),
               ),
             ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 50,
-              width: double.infinity,
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 22.5, horizontal: 10),
-                  hintText: 'Old Password',
-                  hintStyle: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w400,
+          ),
+          const SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                'Forgot Password?',
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
                     fontSize: 12,
-                    color: const Color.fromARGB(255, 117, 117, 117),
+                    color: Colors.grey),
+              )
+            ],
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            height: 50,
+            width: double.infinity,
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 22.5, horizontal: 10),
+                hintText: 'New Password',
+                hintStyle: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                  color: const Color.fromARGB(255, 117, 117, 117),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 182, 180, 180), width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 182, 180, 180), width: 1),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            height: 50,
+            width: double.infinity,
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(
+                    vertical: 22.5, horizontal: 10.0),
+                hintText: 'Repeat New Password',
+                hintStyle: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                  color: const Color.fromARGB(255, 117, 117, 117),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(
+                    color: Color.fromARGB(255, 182, 180, 180),
+                    width: 1,
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 182, 180, 180), width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 182, 180, 180), width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: const BorderSide(
+                    color: Color.fromARGB(255, 182, 180, 180),
+                    width: 1,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'Forgot Password?',
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
-                      color: Colors.grey),
-                )
-              ],
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 50,
+          ),
+          const SizedBox(height: 12),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 4, top: 16, right: 4, bottom: 16),
+            child: SizedBox(
+              height: 39,
               width: double.infinity,
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 22.5, horizontal: 10),
-                  hintText: 'New Password',
-                  hintStyle: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                    color: const Color.fromARGB(255, 117, 117, 117),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 182, 180, 180), width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 182, 180, 180), width: 1),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 50,
-              width: double.infinity,
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 22.5, horizontal: 10.0),
-                  hintText: 'Repeat New Password',
-                  hintStyle: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                    color: const Color.fromARGB(255, 117, 117, 117),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 182, 180, 180),
-                      width: 1,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 182, 180, 180),
-                      width: 1,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            Padding(
-              padding:
-                  const EdgeInsets.only(left: 4, top: 16, right: 4, bottom: 16),
-              child: SizedBox(
-                height: 39,
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xFF1B3A57)),
-                    shape: const MaterialStatePropertyAll(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(8),
-                        ),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFF1B3A57)),
+                  shape: const MaterialStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8),
                       ),
                     ),
                   ),
-                  onPressed: () {
-                    // Handle password change
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    'Save Password',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                      color: const Color.fromARGB(255, 235, 232, 232),
-                    ),
+                ),
+                onPressed: () {
+                  // Handle password change
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Save Password',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                    color: const Color.fromARGB(255, 235, 232, 232),
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

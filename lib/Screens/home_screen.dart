@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_com_app/Global/constants.dart';
 import 'package:e_com_app/Screens/Favorite_Screen/favorite_screen.dart';
 import 'package:e_com_app/Screens/Product_Detail/product_details.dart';
+import 'package:e_com_app/Screens/Profile_Screen/profile_screen.dart';
 import 'package:e_com_app/Screens/Steel_Screen/steel_screen.dart';
 import 'package:e_com_app/Screens/bottom_drawer.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,29 +28,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // AdvancedDrawer(
-        //   backdrop: Container(
-        //     width: double.infinity,
-        //     height: double.infinity,
-        //     decoration: BoxDecoration(
-        //         gradient: LinearGradient(
-        //       begin: Alignment.topLeft,
-        //       end: Alignment.bottomRight,
-        //       colors: [Colors.blueGrey, Colors.blueGrey.withOpacity(0.2)],
-        //     )),
-        //   ),
-        //   controller: _advancedDrawerController,
-        //   animationCurve: Curves.easeInOut,
-        //   animationDuration: const Duration(milliseconds: 300),
-        //   animateChildDecoration: true,
-        //   rtlOpening: false,
-        //   disabledGestures: false,
-        //   childDecoration: const BoxDecoration(
-        //       borderRadius: BorderRadius.all(Radius.circular(16))),
-        //   // ignore: sort_child_properties_last
-        //   child:
-        Scaffold(
+    return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
@@ -91,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.green, // Green background for the counter
                     borderRadius: BorderRadius.circular(30), // Circular shape
                   ),
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     minWidth: 20,
                     minHeight: 20,
                   ),
@@ -109,55 +88,18 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: CircleAvatar(
-              child: Image.asset('assets/Menu.png'),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
+              child: CircleAvatar(
+                child: Image.asset('assets/Menu.png'),
+              ),
             ),
           ),
         ],
       ),
-      //  AppBar(
-      //   leading: IconButton(
-      //     onPressed: _handleMenuButtonPressed,
-      //     icon: ValueListenableBuilder<AdvancedDrawerValue>(
-      //       valueListenable: _advancedDrawerController,
-      //       builder: (_, value, __) {
-      //         return AnimatedSwitcher(
-      //           duration: const Duration(milliseconds: 250),
-      //           child: Icon(
-      //             value.visible ? Icons.clear : Icons.menu,
-      //             key: ValueKey<bool>(value.visible),
-      //           ),
-      //         );
-      //       },
-      //     ),
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //       icon: const Icon(Icons.favorite_border),
-      //       onPressed: () {
-      //         Navigator.push(
-      //             context,
-      //             MaterialPageRoute(
-      //                 builder: (context) => const FavoriteScreen()));
-      //         // Handle favorite action
-      //       },
-      //     ),
-      //     IconButton(
-      //       icon: const Icon(
-      //         Icons.add_shopping_cart,
-      //       ),
-      //       onPressed: () {
-      //         // Handle add to cart action
-      //       },
-      //     ),
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 20),
-      //       child: CircleAvatar(
-      //         child: Image.asset('assets/Menu.png'),
-      //       ),
-      //     ),
-      //   ],
-      // ),
       body: Padding(
         padding: const EdgeInsets.only(left: 17, right: 17),
         child: SingleChildScrollView(
@@ -401,6 +343,55 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                 ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.030,
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Recommended for you',
+                    style: TEXT_STYLE.copyWith(
+                      fontSize: SIZE_SM,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              SizedBox(
+                // width: 200,
+                height: MediaQuery.of(context).size.height * 0.5,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 7, // Adjust the number of items as needed
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ProductDetailsPage()));
+                      },
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        child: ProductCard(
+                          imageList: imageList[index],
+                          title: titleList[index],
+                          subtitle: subtitleList[index],
+                          price: 450.00,
+                          isPressed: false,
+                          onPressed: () {
+                            // Handle button press
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.030,
@@ -921,61 +912,6 @@ class _ProductCardState extends State<ProductCard> {
                   fontSize: SIZE_SM,
                   fontWeight: FontWeight.normal,
                   color: LIT_BOLD,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 40,
-                width: 170,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      isPressed ? BOLD : Colors.white,
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        side: BorderSide(color: BOLD, width: 1.0),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      isPressed = !isPressed; // Toggle the pressed state
-                    });
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) =>
-                    //             const OtpVerificationScreen()));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FaIcon(
-                        FontAwesomeIcons.bagShopping,
-                        size: 20,
-                        color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        "Add To Cart",
-                        style: TEXT_STYLE.copyWith(
-                          fontSize: SIZE_SM,
-                          fontWeight: FontWeight.w500,
-                          color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ),
             ],

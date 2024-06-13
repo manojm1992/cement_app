@@ -1,5 +1,4 @@
 import 'package:e_com_app/Screens/Splash_screens/splash_screen.dart';
-import 'package:e_com_app/Screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

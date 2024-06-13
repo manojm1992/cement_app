@@ -1,6 +1,5 @@
 import 'package:e_com_app/Global/constants.dart';
 import 'package:e_com_app/Screens/Profile_Screen/call_us.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
