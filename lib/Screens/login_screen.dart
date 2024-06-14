@@ -106,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(
                 children: [
+                  Text("hhhh"),
                   Expanded(
                     flex: 1,
                     child: Checkbox(
