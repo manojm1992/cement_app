@@ -1,10 +1,8 @@
 import 'package:e_com_app/Global/constants.dart';
 import 'package:e_com_app/Screens/Bottom_Nav_Bar/bottom_nav_bar.dart';
-import 'package:e_com_app/Screens/home_screen.dart';
 import 'package:e_com_app/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -162,8 +160,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(BOLD),
-                      shape: const MaterialStatePropertyAll(
+                      backgroundColor: WidgetStateProperty.all<Color>(BOLD),
+                      shape: const WidgetStatePropertyAll(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(8),
@@ -219,15 +217,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        shape: const MaterialStatePropertyAll(
+                            WidgetStateProperty.all<Color>(Colors.white),
+                        shape: const WidgetStatePropertyAll(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(8),
                             ),
                           ),
                         ),
-                        side: MaterialStateProperty.all<BorderSide>(
+                        side: WidgetStateProperty.all<BorderSide>(
                           const BorderSide(color: Colors.black, width: 1.0),
                         ),
                       ),
