@@ -92,7 +92,7 @@ class _OrderPageState extends State<OrderPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 17, right: 17),
+        padding: const EdgeInsets.only(left: 17, right: 17,bottom: 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -284,7 +284,7 @@ class _OrderPageState extends State<OrderPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              OrderScreenPage()));
+                                              const OrderScreenPage()));
                                 },
                                 icon: const Icon(
                                   Icons.arrow_forward,

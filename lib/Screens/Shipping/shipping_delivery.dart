@@ -83,7 +83,7 @@ class _ShippingPageState extends State<ShippingPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 17, right: 17),
+        padding: const EdgeInsets.only(left: 17, right: 17,bottom: 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -162,14 +162,14 @@ class _ShippingPageState extends State<ShippingPage> {
               ),
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 30),
                     child: CircleAvatar(
                       maxRadius: 10,
                       backgroundColor: BOLD,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Text(
@@ -180,7 +180,7 @@ class _ShippingPageState extends State<ShippingPage> {
                       color: BOLD,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 70,
                   ),
                   Text(
@@ -215,7 +215,7 @@ class _ShippingPageState extends State<ShippingPage> {
                 height: MediaQuery.of(context).size.height * 0.010,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.only(right: 37),
                 child: Text(
                   'No:123, 4th Street  V.O.C Nagar',
                   style: TEXT_STYLE.copyWith(
@@ -229,7 +229,7 @@ class _ShippingPageState extends State<ShippingPage> {
                 height: MediaQuery.of(context).size.height * 0.010,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 140),
+                padding: const EdgeInsets.only(right: 156),
                 child: Text(
                   'Karnataka',
                   style: TEXT_STYLE.copyWith(
@@ -243,7 +243,7 @@ class _ShippingPageState extends State<ShippingPage> {
                 height: MediaQuery.of(context).size.height * 0.010,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 80),
+                padding: const EdgeInsets.only(right: 96),
                 child: Text(
                   'Bangalore - 500645',
                   style: TEXT_STYLE.copyWith(
@@ -257,8 +257,9 @@ class _ShippingPageState extends State<ShippingPage> {
                 height: MediaQuery.of(context).size.height * 0.010,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 80),
+                padding: const EdgeInsets.only(right: 100),
                 child: Text(
+
                   'Phone : 9876543210',
                   style: TEXT_STYLE.copyWith(
                     fontSize: 12,
@@ -360,7 +361,7 @@ class _ShippingPageState extends State<ShippingPage> {
                     style: TEXT_STYLE.copyWith(
                       fontSize: SIZE_SM,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xFF4D4D4D),
+                      color: const Color(0xFF4D4D4D),
                     ),
                   ),
                 ],
@@ -396,8 +397,8 @@ class _ShippingPageState extends State<ShippingPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(BOLD),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    backgroundColor: WidgetStateProperty.all<Color>(BOLD),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                         side: BorderSide(color: BOLD, width: 1.0),

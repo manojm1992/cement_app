@@ -80,7 +80,7 @@ class _OrderScreenPageState extends State<OrderScreenPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 17, right: 17),
+        padding: const EdgeInsets.only(left: 17, right: 17,bottom: 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -375,21 +375,24 @@ class _OrderScreenPageState extends State<OrderScreenPage> {
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'No:123, 4th Street  V.O.C Nagar',
-                    style: TEXT_STYLE.copyWith(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xFF4D4D4D),
+              Padding(
+                padding: const EdgeInsets.only(right: 18),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'No:123, 4th Street  V.O.C Nagar',
+                      style: TEXT_STYLE.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF4D4D4D),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 53, top: 5),
+                padding: const EdgeInsets.only(left: 38, top: 5),
                 child: Text(
                   'Karnataka',
                   style: TEXT_STYLE.copyWith(
@@ -400,7 +403,7 @@ class _OrderScreenPageState extends State<OrderScreenPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 115, top: 5),
+                padding: const EdgeInsets.only(left: 100, top: 5),
                 child: Text(
                   textAlign: TextAlign.end,
                   'Bangalore - 500645',
@@ -412,7 +415,7 @@ class _OrderScreenPageState extends State<OrderScreenPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 110, top: 5),
+                padding: const EdgeInsets.only(left: 100, top: 5),
                 child: Text(
                   textAlign: TextAlign.end,
                   'Phone : 9876543210',

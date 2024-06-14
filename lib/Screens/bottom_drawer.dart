@@ -749,26 +749,29 @@ class _BottomDrawerContentState extends State<BottomDrawerContent> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: MediaQuery.of(context).size.height*0.02,
           ),
           SizedBox(
             height: 40,
-            width: double.infinity,
+             width: double.infinity,
             child: ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(
+                backgroundColor: WidgetStateProperty.all<Color>(
                   isPressed ? BOLD : Colors.white,
                 ),
-                shape: const MaterialStatePropertyAll(
+                shape: const WidgetStatePropertyAll(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(8),
                     ),
                   ),
                 ),
-                side: MaterialStateProperty.all<BorderSide>(
+                side: WidgetStateProperty.all<BorderSide>(
                   const BorderSide(color: BOLD, width: 1.0),
+                ),
+                padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                  const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 ),
               ),
               onPressed: () {

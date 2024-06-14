@@ -70,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 17, right: 17),
+          padding: const EdgeInsets.only(left: 17, right: 17, bottom: 20),
           child: Column(
             children: [
               SizedBox(
@@ -634,11 +634,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   top: 20,
                 ),
                 child: SizedBox(
-                  height: 50,
+                  height: 40,
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                         isPressed_3 ? BOLD : Colors.white,
                       ),
                       shape: const MaterialStatePropertyAll(
@@ -648,8 +648,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                       ),
-                      side: MaterialStateProperty.all<BorderSide>(
+                      side: WidgetStateProperty.all<BorderSide>(
                         const BorderSide(color: BOLD, width: 1.0),
+                      ),
+                      padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                        const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       ),
                     ),
                     onPressed: () {
@@ -678,22 +681,25 @@ class _ProfilePageState extends State<ProfilePage> {
                   top: 20,
                 ),
                 child: SizedBox(
-                  height: 50,
+                  height: 40,
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                         isPressed_4 ? BOLD : Colors.white,
                       ),
-                      shape: const MaterialStatePropertyAll(
+                      shape: const WidgetStatePropertyAll(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(8),
                           ),
                         ),
                       ),
-                      side: MaterialStateProperty.all<BorderSide>(
+                      side: WidgetStateProperty.all<BorderSide>(
                         const BorderSide(color: BOLD, width: 1.0),
+                      ),
+                      padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                        const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       ),
                     ),
                     onPressed: () {

@@ -58,7 +58,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 17, right: 17),
+          padding: const EdgeInsets.only(left: 17, right: 17,bottom: 20),
           child: Column(
             children: [
               SizedBox(

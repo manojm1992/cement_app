@@ -221,18 +221,18 @@ class _ShippingStorePageState extends State<ShippingStorePage> {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 72),
+                    padding: const EdgeInsets.only(left: 83),
                     child: SizedBox(
                       height: 30,
                       width: 100,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white
+                              WidgetStateProperty.all<Color>(Colors.white
                                   // isPressed ? BOLD : Colors.white,
                                   ),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
                             const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(8)),
@@ -326,8 +326,8 @@ class _ShippingStorePageState extends State<ShippingStorePage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(BOLD),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    backgroundColor: WidgetStateProperty.all<Color>(BOLD),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                         side: BorderSide(color: BOLD, width: 1.0),

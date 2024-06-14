@@ -135,8 +135,8 @@ class _OrderConfirmedPageState extends State<OrderConfirmedPage> {
               width: double.infinity,
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(BOLD),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  backgroundColor: WidgetStateProperty.all<Color>(BOLD),
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                     const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       side: BorderSide(color: BOLD, width: 1.0),
@@ -167,8 +167,8 @@ class _OrderConfirmedPageState extends State<OrderConfirmedPage> {
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      WidgetStateProperty.all<Color>(Colors.white),
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                     const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       side: BorderSide(color: BOLD, width: 1.0),

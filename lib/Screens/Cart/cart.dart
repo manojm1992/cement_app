@@ -79,7 +79,7 @@ class _CartPageState extends State<CartPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 17, right: 17),
+          padding: const EdgeInsets.only(left: 17, right: 17, bottom: 20),
           child: Column(
             children: [
               SizedBox(
@@ -1033,48 +1033,52 @@ class _CartPageState extends State<CartPage> {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-                child: SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        isPressed ? BOLD : Colors.white,
-                      ),
-                      shape: const MaterialStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(8),
-                          ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              SizedBox(
+                height: 40,
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all<Color>(
+                      isPressed ? BOLD : Colors.white,
+                    ),
+                    shape: const WidgetStatePropertyAll(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(8),
                         ),
                       ),
-                      side: MaterialStateProperty.all<BorderSide>(
-                        const BorderSide(color: BOLD, width: 1.0),
-                      ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        isPressed = !isPressed; // Toggle the pressed state
-                      });
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) =>
-                      //             const OtpVerificationScreen()));
-                    },
-                    child: Text(
-                      "Check Out",
-                      style: TEXT_STYLE.copyWith(
-                        fontSize: SIZE_SM,
-                        fontWeight: FontWeight.w600,
-                        color: isPressed ? Colors.white : BOLD,
-                      ),
+                    side: WidgetStateProperty.all<BorderSide>(
+                      const BorderSide(color: BOLD, width: 1.0),
+                    ),
+                    padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      isPressed = !isPressed; // Toggle the pressed state
+                    });
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) =>
+                    //             const OtpVerificationScreen()));
+                  },
+                  child: Text(
+                    "Check Out",
+                    style: TEXT_STYLE.copyWith(
+                      fontSize: SIZE_SM,
+                      fontWeight: FontWeight.w600,
+                      color: isPressed ? Colors.white : BOLD,
                     ),
                   ),
                 ),
               ),
+
             ],
           ),
         ),

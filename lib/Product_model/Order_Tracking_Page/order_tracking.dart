@@ -186,7 +186,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 17, right: 17),
+        padding: const EdgeInsets.only(left: 17, right: 17,bottom: 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
