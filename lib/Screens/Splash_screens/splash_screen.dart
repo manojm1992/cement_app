@@ -44,7 +44,7 @@ class Square extends StatelessWidget {
   const Square({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
       height: 200,
       // color: Colors.blueAccent,

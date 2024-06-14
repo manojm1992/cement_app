@@ -106,23 +106,32 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(
                 children: [
-                  Checkbox(
-                    value: isChecked,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        isChecked = value!;
-                      });
-                    },
-                    shape: OutlinedBorder.lerp(const CircleBorder(),
-                        const RoundedRectangleBorder(), 0.5),
-                    activeColor: BOLD,
+                  Expanded(
+                    flex: 1,
+                    child: Checkbox(
+                      value: isChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked = value!;
+                        });
+                      },
+                      shape: OutlinedBorder.lerp(
+                        const CircleBorder(),
+                        const RoundedRectangleBorder(),
+                        0.5,
+                      ),
+                      activeColor: BOLD,
+                    ),
                   ),
-                  Text(
-                    "Remember me",
-                    style: TEXT_STYLE.copyWith(
-                      fontSize: SIZE_SM,
-                      fontWeight: FontWeight.bold,
-                      color: BOLD,
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      "Remember me",
+                      style: TEXT_STYLE.copyWith(
+                        fontSize: SIZE_SM,
+                        fontWeight: FontWeight.bold,
+                        color: BOLD,
+                      ),
                     ),
                   ),
                   Padding(
@@ -141,6 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
+
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
               ),
