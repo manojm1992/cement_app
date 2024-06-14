@@ -5,9 +5,7 @@ import 'package:e_com_app/Screens/Product_Detail/product_details.dart';
 import 'package:e_com_app/Screens/Profile_Screen/profile_screen.dart';
 import 'package:e_com_app/Screens/Steel_Screen/steel_screen.dart';
 import 'package:e_com_app/Screens/bottom_drawer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -363,7 +361,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 // width: 200,
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.33,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 7, // Adjust the number of items as needed
@@ -418,15 +416,15 @@ class _HomePageState extends State<HomePage> {
                     width: 170,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(BOLD),
-                        shape: const MaterialStatePropertyAll(
+                        backgroundColor: WidgetStateProperty.all<Color>(BOLD),
+                        shape: const WidgetStatePropertyAll(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(8),
                             ),
                           ),
                         ),
-                        side: MaterialStateProperty.all<BorderSide>(
+                        side: WidgetStateProperty.all<BorderSide>(
                           const BorderSide(color: BOLD, width: 1.0),
                         ),
                       ),
@@ -452,17 +450,17 @@ class _HomePageState extends State<HomePage> {
                     width: 170,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
+                        backgroundColor: WidgetStateProperty.all<Color>(
                           isPressed ? BOLD : Colors.white,
                         ),
-                        shape: const MaterialStatePropertyAll(
+                        shape: const WidgetStatePropertyAll(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(8),
                             ),
                           ),
                         ),
-                        side: MaterialStateProperty.all<BorderSide>(
+                        side: WidgetStateProperty.all<BorderSide>(
                           const BorderSide(color: BOLD, width: 1.0),
                         ),
                       ),
@@ -509,7 +507,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                   // width: 200,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.35,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 7, // Adjust the number of items as needed
@@ -563,7 +561,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                   // width: 200,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.42,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 5, // Adjust the number of items as needed
@@ -636,92 +634,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-    //   drawer: SafeArea(
-    //     child: ListTileTheme(
-    //       textColor: Colors.white,
-    //       iconColor: Colors.white,
-    //       child: Column(
-    //         mainAxisSize: MainAxisSize.max,
-    //         children: [
-    //           Container(
-    //             width: 128.0,
-    //             height: 128.0,
-    //             margin: const EdgeInsets.only(
-    //               top: 24.0,
-    //               bottom: 64.0,
-    //             ),
-    //             clipBehavior: Clip.antiAlias,
-    //             decoration: const BoxDecoration(
-    //               color: Colors.black26,
-    //               shape: BoxShape.circle,
-    //             ),
-    //             child: Image.asset('assets/download.png'),
-    //           ),
-    //           ListTile(
-    //             onTap: () {},
-    //             leading: const Icon(Icons.home),
-    //             title: Text(
-    //               'Home',
-    //               style: TEXT_STYLE.copyWith(
-    //                 fontSize: SIZE_SM,
-    //                 fontWeight: FontWeight.bold,
-    //               ),
-    //             ),
-    //           ),
-    //           ListTile(
-    //             onTap: () {},
-    //             leading: const Icon(Icons.account_circle_rounded),
-    //             title: Text(
-    //               'Profile',
-    //               style: TEXT_STYLE.copyWith(
-    //                 fontSize: SIZE_SM,
-    //                 fontWeight: FontWeight.bold,
-    //               ),
-    //             ),
-    //           ),
-    //           ListTile(
-    //             onTap: () {},
-    //             leading: const Icon(Icons.settings),
-    //             title: Text(
-    //               'Settings',
-    //               style: TEXT_STYLE.copyWith(
-    //                 fontSize: SIZE_SM,
-    //                 fontWeight: FontWeight.bold,
-    //               ),
-    //             ),
-    //           ),
-    //           ListTile(
-    //             onTap: () {},
-    //             leading: const Icon(Icons.favorite),
-    //             title: Text(
-    //               'Favourites',
-    //               style: TEXT_STYLE.copyWith(
-    //                 fontSize: SIZE_SM,
-    //                 fontWeight: FontWeight.bold,
-    //               ),
-    //             ),
-    //           ),
-    //           const Spacer(),
-    //           DefaultTextStyle(
-    //             style: const TextStyle(fontSize: 12, color: Colors.white54),
-    //             child: Container(
-    //               margin: const EdgeInsets.symmetric(
-    //                 vertical: 16.0,
-    //               ),
-    //               child: Text(
-    //                 'Terms of service | Privacy policy',
-    //                 style: TEXT_STYLE.copyWith(
-    //                   fontSize: SIZE_SM,
-    //                   fontWeight: FontWeight.bold,
-    //                 ),
-    //               ),
-    //             ),
-    //           )
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
+
   }
 
   void _handleMenuButtonPressed() {
