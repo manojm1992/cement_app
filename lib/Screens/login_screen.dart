@@ -1,5 +1,6 @@
 import 'package:e_com_app/Global/constants.dart';
 import 'package:e_com_app/Screens/Bottom_Nav_Bar/bottom_nav_bar.dart';
+import 'package:e_com_app/Screens/email_verification.dart';
 import 'package:e_com_app/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -136,7 +137,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(left: 45),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> EmailVerificationScreen()));
+                      },
                       child: Text(
                         'Forgot Password?',
                         style: TEXT_STYLE.copyWith(

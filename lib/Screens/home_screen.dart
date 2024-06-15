@@ -1,9 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_com_app/Global/constants.dart';
-import 'package:e_com_app/Screens/Favorite_Screen/favorite_screen.dart';
+import 'package:e_com_app/Screens/Cement_Page/cement_page.dart';
+import 'package:e_com_app/Screens/Favorite_Page/favorite_screen.dart';
+
 import 'package:e_com_app/Screens/Product_Detail/product_details.dart';
 import 'package:e_com_app/Screens/Profile_Screen/profile_screen.dart';
-import 'package:e_com_app/Screens/Steel_Screen/steel_screen.dart';
+import 'package:e_com_app/Screens/Steel_Page/steel_screen.dart';
+
 import 'package:e_com_app/Screens/bottom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
@@ -28,12 +31,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.of(context).pop(); // Handle back action
-          },
-        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+
         title: Padding(
           padding:
               const EdgeInsets.only(left: 0), // Adjust the padding if needed
@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.favorite_border),
             onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> FavoriteScreen()));
               // Handle favorite action
             },
           ),
@@ -89,7 +90,7 @@ class _HomePageState extends State<HomePage> {
             child: GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()));
+                    MaterialPageRoute(builder: (context) => const ProfilePage()));
               },
               child: CircleAvatar(
                 child: Image.asset('assets/Menu.png'),
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 17, right: 17),
+        padding: const EdgeInsets.only(left: 10, right: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -429,11 +430,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) =>
-                        //             const OtpVerificationScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                     const Cement( key: Key('3'))));
                       },
                       child: Text(
                         "Cement",
@@ -471,8 +472,8 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SteelScreen(
-                                      key: Key('3'),
+                                builder: (context) =>  const Steel(
+                                    key: Key('3')
                                     )));
                       },
                       child: Text(
@@ -536,6 +537,9 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                   )),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.030,
+        ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -557,7 +561,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
+                height: MediaQuery.of(context).size.height * 0.020,
               ),
               SizedBox(
                   // width: 200,
@@ -582,7 +586,7 @@ class _HomePageState extends State<HomePage> {
                     },
                   )),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
+                height: MediaQuery.of(context).size.height * 0.030,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -605,11 +609,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
+                height: MediaQuery.of(context).size.height * 0.020,
               ),
               SizedBox(
                   // width: 200,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.42,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 5, // Adjust the number of items as needed
@@ -637,11 +641,6 @@ class _HomePageState extends State<HomePage> {
 
   }
 
-  void _handleMenuButtonPressed() {
-    // NOTICE: Manage Advanced Drawer state through the Controller.
-    // _advancedDrawerController.value = AdvancedDrawerValue.visible();
-    _advancedDrawerController.showDrawer();
-  }
 }
 
 List<String> imageList = [
@@ -706,127 +705,106 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Expanded(
+            child: Stack(
+              children: [
+                Card(
+                  color: const Color(0xFFDFDFDF),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                      color: Color.fromARGB(71, 158, 158, 158),
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(25),
+                    child: Image.asset(
+                     widget.imageList,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: GestureDetector(
+                    onTap: () {
+                      // setState(() {
+                      //   isFavoriteList[index] =
+                      //   !isFavoriteList[index];
+                      // });
+                    },
+                    child: IconButton(
+                      icon: Icon(
+                        isFavorite
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: isFavorite ? Colors.red : Colors.grey,
+                        size: 30,
+                      ),
+                      onPressed: () {
+
+                        setState(() {
+                          isFavorite = !isFavorite;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Text(
+          widget.title,
+          textAlign: TextAlign.center,
+          style: TEXT_STYLE.copyWith(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: BOLD,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Text(
+          widget.subtitle,
+          textAlign: TextAlign.center,
+          style: TEXT_STYLE.copyWith(
+            fontSize: 13,
+            fontWeight: FontWeight.normal,
+            color: LIT_BOLD,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 180,
-              height: 180,
-              child: Stack(
-                children: [
-                  Card(
-                    color: const Color(0xFFDFDFDF),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: Color.fromARGB(71, 158, 158, 158),
-                      ),
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Image.asset(
-                        widget.imageList,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: 5,
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          padding: const EdgeInsets.all(8),
-                          child: IconButton(
-                            icon: Icon(
-                              isFavorite
-                                  ? Icons.favorite
-                                  : Icons.favorite_border,
-                              color: isFavorite ? Colors.red : Colors.grey,
-                              size: 30,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                isFavorite = !isFavorite;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+            Text(
+              '₹450.00',
+              style: TEXT_STYLE.copyWith(
+                fontSize: SIZE_SM,
+                fontWeight: FontWeight.bold,
+                color: BOLD,
+              ),
+            ),
+            SizedBox(width: MediaQuery.of(context).size.width * 0.090),
+            Text(
+              //'${product.originalPrice}',
+              '500.00',
+              style: TEXT_STYLE.copyWith(
+                fontSize: SIZE_SM,
+                fontWeight: FontWeight.normal,
+                color: LIT_BOLD,
               ),
             ),
           ],
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                widget.title,
-                textAlign: TextAlign.center,
-                style: TEXT_STYLE.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: BOLD,
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                widget.subtitle,
-                textAlign: TextAlign.center,
-                style: TEXT_STYLE.copyWith(
-                  fontSize: 13,
-                  fontWeight: FontWeight.normal,
-                  color: LIT_BOLD,
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                '₹450.00',
-                style: TEXT_STYLE.copyWith(
-                  fontSize: SIZE_SM,
-                  fontWeight: FontWeight.bold,
-                  color: BOLD,
-                ),
-              ),
-              SizedBox(width: MediaQuery.of(context).size.width * 0.050),
-              Text(
-                //'${product.originalPrice}',
-                '500.00',
-                style: TEXT_STYLE.copyWith(
-                  fontSize: SIZE_SM,
-                  fontWeight: FontWeight.normal,
-                  color: LIT_BOLD,
-                ),
-              ),
-            ],
-          ),
-        ),
+
+
+
+
       ],
     );
   }
@@ -859,182 +837,157 @@ class _ProductCrd_1State extends State<ProductCard_1> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Expanded(
+          child: Stack(
+            children: [
+              Card(
+                color: const Color(0xFFDFDFDF),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    color: Color.fromARGB(71, 158, 158, 158),
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: Image.asset(
+                    widget.imageList_1,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   isFavoriteList[index] =
+                    //   !isFavoriteList[index];
+                    // });
+                  },
+                  child: IconButton(
+                    icon: Icon(
+                      isFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: isFavorite ? Colors.red : Colors.grey,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Text(
+          widget.title_1,
+          textAlign: TextAlign.center,
+          style: TEXT_STYLE.copyWith(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: BOLD,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Text(
+          widget.subtitle_1,
+          textAlign: TextAlign.center,
+          style: TEXT_STYLE.copyWith(
+            fontSize: 13,
+            fontWeight: FontWeight.normal,
+            color: LIT_BOLD,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 180,
-              height: 180,
-              child: Stack(
-                children: [
-                  Card(
-                    color: const Color(0xFFDFDFDF),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: Color.fromARGB(71, 158, 158, 158),
-                      ),
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Image.asset(
-                        widget.imageList_1,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: 5,
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          padding: const EdgeInsets.all(8),
-                          child: IconButton(
-                            icon: Icon(
-                              isFavorite
-                                  ? Icons.favorite
-                                  : Icons.favorite_border,
-                              color: isFavorite ? Colors.red : Colors.grey,
-                              size: 30,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                isFavorite = !isFavorite;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+            Text(
+              '₹450.00',
+              style: TEXT_STYLE.copyWith(
+                fontSize: SIZE_SM,
+                fontWeight: FontWeight.bold,
+                color: BOLD,
+              ),
+            ),
+            SizedBox(width: MediaQuery.of(context).size.width * 0.090),
+            Text(
+              //'${product.originalPrice}',
+              '500.00',
+              style: TEXT_STYLE.copyWith(
+                fontSize: SIZE_SM,
+                fontWeight: FontWeight.normal,
+                color: LIT_BOLD,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(right: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                widget.title_1,
-                textAlign: TextAlign.center,
-                style: TEXT_STYLE.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: BOLD,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                widget.subtitle_1,
-                textAlign: TextAlign.center,
-                style: TEXT_STYLE.copyWith(
-                  fontSize: 13,
-                  fontWeight: FontWeight.normal,
-                  color: LIT_BOLD,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                '₹450.00',
-                style: TEXT_STYLE.copyWith(
-                  fontSize: SIZE_SM,
-                  fontWeight: FontWeight.bold,
-                  color: BOLD,
-                ),
-              ),
-              const SizedBox(width: 50),
-              Text(
-                //'${product.originalPrice}',
-                '500.00',
-                style: TEXT_STYLE.copyWith(
-                  fontSize: SIZE_SM,
-                  fontWeight: FontWeight.normal,
-                  color: LIT_BOLD,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 40,
-                width: 170,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      isPressed ? BOLD : Colors.white,
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        side: BorderSide(color: BOLD, width: 1.0),
-                      ),
+         SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 40,
+              width: 170,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(
+                    isPressed ? BOLD : Colors.white,
+                  ),
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                    const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      side: BorderSide(color: BOLD, width: 1.0),
                     ),
                   ),
-                  onPressed: () {
-                    setState(() {
-                      isPressed = !isPressed; // Toggle the pressed state
-                    });
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) =>
-                    //             const OtpVerificationScreen()));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FaIcon(
-                        FontAwesomeIcons.bagShopping,
-                        size: 20,
+                ),
+                onPressed: () {
+                  setState(() {
+                    isPressed = !isPressed; // Toggle the pressed state
+                  });
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) =>
+                  //             const OtpVerificationScreen()));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.bagShopping,
+                      size: 20,
+                      color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      "Add To Cart",
+                      style: TEXT_STYLE.copyWith(
+                        fontSize: SIZE_SM,
+                        fontWeight: FontWeight.w500,
                         color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
                       ),
-                      const SizedBox(width: 10),
-                      Text(
-                        "Add To Cart",
-                        style: TEXT_STYLE.copyWith(
-                          fontSize: SIZE_SM,
-                          fontWeight: FontWeight.w500,
-                          color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+
+
+
+
       ],
     );
   }
@@ -1090,175 +1043,159 @@ class _ProductCard_2State extends State<ProductCard_2> {
   bool isPressed = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Stack(
             children: [
-              SizedBox(
-                width: 180,
-                height: 180,
-                child: Stack(
-                  children: [
-                    Card(
-                      color: const Color(0xFFDFDFDF),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                          color: Color.fromARGB(71, 158, 158, 158),
-                        ),
-                        borderRadius: BorderRadius.circular(13),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Image.asset(
-                          widget.imageList_2,
-                        ),
-                      ),
+              Card(
+                color: const Color(0xFFDFDFDF),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    color: Color.fromARGB(71, 158, 158, 158),
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: Image.asset(
+                    widget.imageList_2,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   isFavoriteList[index] =
+                    //   !isFavoriteList[index];
+                    // });
+                  },
+                  child: IconButton(
+                    icon: Icon(
+                      isFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: isFavorite ? Colors.red : Colors.grey,
+                      size: 30,
                     ),
-                    Positioned(
-                      right: 5,
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            padding: const EdgeInsets.all(8),
-                            child: IconButton(
-                              icon: Icon(
-                                isFavorite
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color: isFavorite ? Colors.red : Colors.grey,
-                                size: 30,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  isFavorite = !isFavorite;
-                                });
-                              },
-                            ),
-                          ),
-                        ),
+                    onPressed: () {
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Text(
+          widget.title_2,
+          textAlign: TextAlign.center,
+          style: TEXT_STYLE.copyWith(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: BOLD,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Text(
+          widget.subtitle_2,
+          textAlign: TextAlign.center,
+          style: TEXT_STYLE.copyWith(
+            fontSize: 13,
+            fontWeight: FontWeight.normal,
+            color: LIT_BOLD,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              '₹450.00',
+              style: TEXT_STYLE.copyWith(
+                fontSize: SIZE_SM,
+                fontWeight: FontWeight.bold,
+                color: BOLD,
+              ),
+            ),
+            SizedBox(width: MediaQuery.of(context).size.width * 0.090),
+            Text(
+              //'${product.originalPrice}',
+              '500.00',
+              style: TEXT_STYLE.copyWith(
+                fontSize: SIZE_SM,
+                fontWeight: FontWeight.normal,
+                color: LIT_BOLD,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 40,
+              width: 170,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(
+                    isPressed ? BOLD : Colors.white,
+                  ),
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                    const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      side: BorderSide(color: BOLD, width: 1.0),
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  setState(() {
+                    isPressed = !isPressed; // Toggle the pressed state
+                  });
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) =>
+                  //             const OtpVerificationScreen()));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.bagShopping,
+                      size: 20,
+                      color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      "Add To Cart",
+                      style: TEXT_STYLE.copyWith(
+                        fontSize: SIZE_SM,
+                        fontWeight: FontWeight.w500,
+                        color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
                       ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                widget.title_2,
-                textAlign: TextAlign.center,
-                style: TEXT_STYLE.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: BOLD,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                widget.subtitle_2,
-                textAlign: TextAlign.center,
-                style: TEXT_STYLE.copyWith(
-                  fontSize: 13,
-                  fontWeight: FontWeight.normal,
-                  color: LIT_BOLD,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                '₹450.00/KG',
-                style: TEXT_STYLE.copyWith(
-                  fontSize: SIZE_SM,
-                  fontWeight: FontWeight.bold,
-                  color: BOLD,
-                ),
-              ),
-              const SizedBox(width: 30),
-              Text(
-                //'${product.originalPrice}',
-                '500.00',
-                style: TEXT_STYLE.copyWith(
-                  fontSize: SIZE_SM,
-                  fontWeight: FontWeight.normal,
-                  color: LIT_BOLD,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 40,
-                width: 170,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      isPressed ? BOLD : Colors.white,
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        side: BorderSide(color: BOLD, width: 1.0),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      isPressed = !isPressed; // Toggle the pressed state
-                    });
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) =>
-                    //             const OtpVerificationScreen()));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FaIcon(
-                        FontAwesomeIcons.bagShopping,
-                        size: 20,
-                        color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        "Add To Cart",
-                        style: TEXT_STYLE.copyWith(
-                          fontSize: SIZE_SM,
-                          fontWeight: FontWeight.w500,
-                          color: isPressed ? const Color(0xFFD3D3D3) : BOLD,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+
+
+
+
+      ],
     );
   }
 }

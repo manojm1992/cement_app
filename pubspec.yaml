@@ -51,6 +51,7 @@ dependencies:
   animate_do: ^3.3.4
   backdrop: ^0.9.1
   simple_drawer: ^0.0.11
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

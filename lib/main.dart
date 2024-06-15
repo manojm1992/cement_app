@@ -1,8 +1,18 @@
+import 'package:e_com_app/Provider/Favorite_Model/favorite_model.dart';
+import 'package:e_com_app/Screens/Favorite_Page/favorite_screen.dart';
 import 'package:e_com_app/Screens/Splash_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+        providers:[
+          ChangeNotifierProvider(create: (_)=> FavoritesProvider()),
+        ],
+  child: const MyApp(),
+  ),
+  );
 }
 
 class MyApp extends StatelessWidget {

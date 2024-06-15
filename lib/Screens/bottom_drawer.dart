@@ -754,7 +754,7 @@ class _BottomDrawerContentState extends State<BottomDrawerContent> {
           ),
           SizedBox(
             height: 40,
-             width: double.infinity,
+             width: MediaQuery.of(context).size.width *0.95,
             child: ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all<Color>(

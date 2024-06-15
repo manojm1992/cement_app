@@ -41,12 +41,8 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.of(context).pop(); // Handle back action
-          },
-        ),
+        backgroundColor: Colors.white,
+      automaticallyImplyLeading: false,
         title: Padding(
           padding:
               const EdgeInsets.only(left: 0), // Adjust the padding if needed
